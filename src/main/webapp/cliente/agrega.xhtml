@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cliente</title>
+    </h:head>
+    <body>
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <b:panel title="Cliente" look="primary">
+                    <h:form id="agregaClienteForm">
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Cedula"/>
+                            </b:column>
+                            <b:column medium-screen="2">
+                                <b:inputText placeholder="Cedula"
+                                             id="idCliente"
+                                             required="true"
+                                             value="#{clienteController.idCliente}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="idCliente"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Nombre"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Nombre"
+                                             id="nombre"
+                                             required="true"
+                                             value="#{clienteController.nombre}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="nombre"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="apellido1"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="apellido1"
+                                             id="apellido1"
+                                             required="true"
+                                             value="#{clienteController.apellido1}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="apellido1"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="apellido2"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="apellido2"
+                                             id="apellido2"
+                                             required="true"
+                                             value="#{clienteController.apellido2}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="apellido2"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="correo"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="correo"
+                                             id="correo"
+                                             required="true"
+                                             value="#{clienteController.correo}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="correo"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Celular"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Celular"
+                                             id="celular"
+                                             required="true"
+                                             value="#{clienteController.celular}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="celular"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="edad"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="edad"
+                                             id="edad"
+                                             required="true"
+                                             value="#{clienteController.edad}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="edad"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Género"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:panelGrid size="" columns="2">
+                                    <b:radiobutton value="#{clienteController.genero}"
+                                                   itemLabel="Hombre"
+                                                   itemValue="H"/>
+                                    <b:radiobutton value="#{clienteController.genero}"
+                                                   itemLabel="Mujer"
+                                                   itemValue="M"/>
+                                </b:panelGrid>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="genero"/>
+                            </b:column>
+                        </b:row>
+                        <!-- captcha -->
+                            <p:captcha label="Check"/>
+                        <!-- La fila de los botones -->
+                        <b:row>
+                            <b:column medium-screen="2"/>
+                            <b:column medium-screen="6">
+                                <b:commandButton value="Agregar"
+                                                 action="#{clienteController.agrega()}"
+                                                 look="success"
+                                                 style="width: 33%"/>
+                            </b:column>
+                        </b:row>
+                    </h:form>
+                </b:panel>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

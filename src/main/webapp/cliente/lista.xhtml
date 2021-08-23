@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cliente</title>
+    </h:head>
+    <body>
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <b:panel title="Cliente" look="primary">
+                    <h:form>
+                         <b:column medium-screen="20">
+                                <b:commandButton value="Agregar Cliente" 
+                                                 look="success"
+                                                 style="width: 20%"
+                                                 action="#{clienteController.agregar()}"/>
+                        </b:column>
+                        <p:separator/>
+                        <b:dataTable value="#{clienteController.clientes}"
+                                     var="cliente"
+                                     excel="true"
+                                     csv="true"
+                                     pdf="true"
+                                     copy="true"
+                                     column-visibility="true"
+                                     print="true">
+                            <b:dataTableColumn value="#{cliente.idCliente}"
+                                               width="9%"
+                                               style="text-align: center"
+                                               label="Cedula del Cliente"/>
+                            <b:dataTableColumn value="#{cliente.nombre}"
+                                               width="15%"
+                                               style="text-align: center"
+                                               label="Nombre"/>
+                            <b:dataTableColumn value="#{cliente.apellido1}"
+                                               width="15%"
+                                               style="text-align: center"
+                                               label="Primer Apellido"/>
+                            <b:dataTableColumn value="#{cliente.apellido2}"
+                                               width="19%"
+                                               style="text-align: center"
+                                               label="Segundo Apellido"/>
+                            <b:dataTableColumn value="#{cliente.correo}"
+                                               width="19%"
+                                               style="text-align: center"
+                                               label="Correo"/>
+                            <b:dataTableColumn value="#{cliente.celular}"
+                                               width="10%"
+                                               style="text-align: center"
+                                               label="Numero de telefono"/>
+                            <b:dataTableColumn value="#{cliente.edad}"
+                                               width="10%"
+                                               style="text-align: center"
+                                               label="Edad"/>
+                            <b:dataTableColumn value="#{cliente.genero}"
+                                               width="8%"
+                                               style="text-align: center"
+                                               label="Genero"/>
+                            <b:dataTableColumn label="Accion"
+                                               width="10%"
+                                               style="text-align: center">
+                                        <b:commandButton value="Editar" 
+                                                         look="success"
+                                                         action="#{clienteController.edita(cliente.idCliente)}"/>
+                            </b:dataTableColumn>
+                        </b:dataTable>
+                    </h:form>
+                </b:panel>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

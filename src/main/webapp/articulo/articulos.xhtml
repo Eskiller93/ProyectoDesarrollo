@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Brazaletes</title>
+    </h:head>
+    <body>
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <b:panel title="Articulos" look="primary">
+                    <h:form>
+                        <b:row>
+                            <b:column medium-screen="10"
+                                      style="width: 2%">
+                            </b:column>
+                            <b:column medium-screen="20">
+                                <b:commandButton value="Agregar articulo" 
+                                                 look="success"
+                                                 style="width: 20%"
+                                                 action="#{articuloController.agregar()}"/>
+                            </b:column>
+                        </b:row>
+                        <p:separator/>
+                        <b:row>
+                            <b:dataTable value="#{articuloController.brazalete}"
+                                         var="articulo"
+                                         excel="true"
+                                         csv="true"
+                                         pdf="true"
+                                         copy="true"
+                                         column-visibility="true"
+                                         print="true">
+                                <b:dataTableColumn value="#{articulo.modeloSKU}"
+                                                   width="9%"
+                                                   style="text-align: center"
+                                                   label="SKU"/>
+                                <b:dataTableColumn value="#{articulo.marca}"
+                                                   width="15%"
+                                                   style="text-align: center"
+                                                   label="Marca"/>
+                                <b:dataTableColumn value="#{articulo.tallasDisponibles}"
+                                                   width="19%"
+                                                   style="text-align: center"
+                                                   label="Tallas Disponibles"/>
+                                <b:dataTableColumn value="#{articulo.precio}"
+                                                   width="10%"
+                                                   style="text-align: center"
+                                                   label="Precio"/>
+                                <b:dataTableColumn value="#{articulo.detalle}"
+                                                   width="19%"
+                                                   style="text-align: center"
+                                                   label="Detalle"/>
+                                <b:dataTableColumn label="Accion"
+                                                   width="10%"
+                                                   style="text-align: center">
+                                            <b:commandButton value="Editar" 
+                                                             look="primary"
+                                                             action="#{articuloController.edita(articulo.modeloSKU)}"/>
+                                </b:dataTableColumn>
+                            </b:dataTable>
+                        </b:row>
+                    </h:form>
+                </b:panel>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

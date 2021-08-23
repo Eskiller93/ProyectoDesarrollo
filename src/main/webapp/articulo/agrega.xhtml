@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Articulos</title>
+    </h:head>
+    <body>
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <b:panel title="Articulo" look="primary">
+                    <h:form id="agregaArticuloForm">
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Modelo"/>
+                            </b:column>
+                            <b:column medium-screen="2">
+                                <b:inputText placeholder="SKU"
+                                             id="modeloSKU"
+                                             required="true"
+                                             value="#{articuloController.modeloSKU}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="modeloSKU"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Marca"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Marca"
+                                             id="marca"
+                                             required="true"
+                                             value="#{articuloController.marca}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="marca"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Tallas Disponibles"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Tallas Disponibles"
+                                             id="tallasDisponibles"
+                                             required="true"
+                                             value="#{articuloController.tallasDisponibles}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="tallasDisponibles"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Precio"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Precio"
+                                             id="precio"
+                                             required="true"
+                                             value="#{articuloController.precio}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="precio"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Detalle"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Detalle"
+                                             id="detalle"
+                                             required="true"
+                                             value="#{articuloController.detalle}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="detalle"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Cantidad"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Cantidad"
+                                             id="cantidad"
+                                             required="true"
+                                             value="#{articuloController.cantidad}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="cantidad"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Ubicacion"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Ubicacion"
+                                             id="ubicacion"
+                                             required="true"
+                                             value="#{articuloController.ubicacion}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="ubicacion"/>
+                            </b:column>
+                        </b:row>
+                        <!-- La fila de los botones -->
+                        <b:row>
+                            <b:column medium-screen="2"/>
+                            <b:column medium-screen="6">
+                                <b:commandButton value="Agregar"
+                                                 action="#{articuloController.agrega()}"
+                                                 look="success"
+                                                 style="width: 33%"/>
+                            </b:column>
+                        </b:row>
+                    </h:form>
+                </b:panel>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

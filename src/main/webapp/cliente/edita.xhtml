@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>CLiente</title>
+    </h:head>
+    <body>
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <b:panel title="Cliente" look="primary">
+                    <h:form id="editaClienteForm">
+                        <!-- La fila del idCliente -->
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Identificación del Cliente"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="cedula"
+                                             id="idCliente"
+                                             required="true"
+                                             value="#{clienteController.idCliente}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="idCLiente"/>
+                            </b:column>
+                        </b:row>
+
+                        <!-- La fila del nombre-->
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="nombre"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="nombre "
+                                             id="nombre"
+                                             required="true"
+                                             value="#{clienteController.nombre}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="nombre"/>
+                            </b:column>
+                        </b:row>
+
+                        <!-- La fila del primer apellido-->
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Primer Apellido"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Primer Apellido "
+                                             id="apellido1"
+                                             required="true"
+                                             value="#{clienteController.apellido1}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="apellido1"/>
+                            </b:column>
+                        </b:row>
+
+                        <!-- La fila del segundo apellido -->
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Segundo Apellido"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Segundo Apellido"
+                                             id="apellido2"
+                                             required="true"
+                                             value="#{clienteController.apellido2}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="apellido2"/>
+                            </b:column>
+                        </b:row>
+
+                        <!-- La fila del correo -->
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="correo"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="correo"
+                                             id="correo"
+                                             value="#{clienteController.correo}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="correo"/>
+                            </b:column>
+                        </b:row>
+
+                        <!-- La fila del numero de telefono -->
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="celular"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="celular"
+                                             id="celular"
+                                             value="#{clienteController.celular}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="celular"/>
+                            </b:column>
+                        </b:row>
+
+                        <!-- La fila de la edad -->
+                      <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="edad"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="edad"
+                                             id="edad"
+                                             value="#{clienteController.edad}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="edad"/>
+                            </b:column>
+                        </b:row>
+
+                        <!-- La fila del género -->
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Género"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:panelGrid size="" columns="2">
+                                    <b:radiobutton value="#{clienteController.genero}"
+                                                   itemLabel="Hombre"
+                                                   itemValue="H"/>
+                                    <b:radiobutton value="#{clienteController.genero}"
+                                                   itemLabel="Mujer"
+                                                   itemValue="M"/>
+                                </b:panelGrid>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="genero"/>
+                            </b:column>
+                        </b:row>
+
+                         <!-- La fila de los botones-->
+                        <b:row>
+                            <b:column medium-screen="2"/>
+                            <b:column medium-screen="6">
+                               
+                                <b:commandButton value="Eliminar"
+                                                 action="#{clienteController.eliminar()}"
+                                                 look="danger"
+                                                 style="width: 33%" />
+                                <b:commandButton value="Modificar"
+                                                 action="#{clienteController.modificar()}"
+                                                 look="success"
+                                                 style="width: 33%" />
+                            </b:column>                            
+                        </b:row>                        
+                    </h:form>
+                </b:panel>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

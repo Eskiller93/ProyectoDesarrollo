@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
       <h:head>
         <title>Login</title>
         <style>
@@ -41,7 +42,6 @@
                             </b:inputText>
                         </b:column>
                     </b:row>
-
                     <b:row>
                         <b:column medium-screen="1"/>
                         <b:column medium-screen="10">
@@ -55,7 +55,6 @@
                             </b:inputSecret>
                         </b:column>
                     </b:row>
-
                     <b:row>
                         <b:column medium-screen="1"/>
                         <b:column medium-screen="10">
@@ -65,10 +64,14 @@
                                              action="#{usuarioController.valida()}"/>
                         </b:column>                        
                     </b:row>
-                    
+                    <b:row>
+                        <b:column medium-screen="1"/>
+                        <b:column medium-screen="10" style-class="message">
+                                <b:message for="usuario"/>
+                        </b:column>                       
+                    </b:row>
                 </b:panel>
             </h:form>
         </f:view>
-
     </h:body>
 </html>

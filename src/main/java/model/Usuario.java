@@ -23,11 +23,12 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String Usuario, String Nombre, String Apellido, String tipoDeUsuario) {
+    public Usuario(String Usuario, String Nombre, String Apellido, String tipoDeUsuario, boolean activo) {
         this.Usuario = Usuario;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.tipoDeUsuario = tipoDeUsuario;
+        this.activo = activo;
     }
 
     public int getId() {

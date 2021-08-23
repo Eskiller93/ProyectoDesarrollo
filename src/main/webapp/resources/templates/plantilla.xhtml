@@ -10,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet library = "css" name="default.css"/>
         <h:outputStylesheet library = "css" name="cssLayout.css"/>
-        <title>KOKO MIEL</title>
+        <title>Koko Miel</title>
     </h:head>
 
     <h:body>
@@ -43,7 +43,7 @@
             </b:navbarLinks>
             <!--Definicion de un grupo de opciones para salir-->
             <b:navbarLinks pull="right" style-class="hidden-xs">
-                <b:dropMenu value="#{usuarioController.nombre}" icon-awesome="fa-cog">
+                <b:dropMenu value="#{usuarioController.nombre} #{usuarioController.apellido}" icon-awesome="fa-cog">
                     <b:navLink value="Cerrar"
                                icon-awesome="fa-door-open"
                                href="#{request.contextPath}/faces/index.xhtml"/>

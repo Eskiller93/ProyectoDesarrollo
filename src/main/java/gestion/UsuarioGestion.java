@@ -10,7 +10,7 @@ import model.Usuario;
 
 public class UsuarioGestion {
     private static final String SQL_VALIDA=
-            "select nombre,tipodeusuario from usuarios where usuario=? and contrasena=md5(?)";
+            "select nombre,apellido,tipodeusuario from usuarios where usuario=? and contrasena=md5(?)";
     
     public static Usuario valida(String idUsuario,String pwUsuario) {
         Usuario usuario=null;
@@ -24,9 +24,8 @@ public class UsuarioGestion {
                 usuario = new Usuario(
                         idUsuario,
                         info.getString(1),
-                        info.getString(2));
-                        String prueba1=info.getString(1);
-                        String prueba2=info.getString(2);
+                        info.getString(2),
+                        info.getString(3));
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioGestion.class.getName()).log(Level.SEVERE, null, ex);

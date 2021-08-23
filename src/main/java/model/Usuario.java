@@ -23,9 +23,10 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String Usuario, String Contrasena, String tipoDeUsuario) {
+    public Usuario(String Usuario, String Nombre, String Apellido, String tipoDeUsuario) {
         this.Usuario = Usuario;
-        this.Contrasena = Contrasena;
+        this.Nombre = Nombre;
+        this.Apellido = Apellido;
         this.tipoDeUsuario = tipoDeUsuario;
     }
 

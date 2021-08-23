@@ -27,7 +27,7 @@ public class UsuarioController extends Usuario implements Serializable {
         }
         return "index.xhtml";
         }
-        //esteban miranda
+        //esteban miranda vargas
 }
         
 

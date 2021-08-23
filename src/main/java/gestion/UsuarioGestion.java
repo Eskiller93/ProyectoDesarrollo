@@ -25,6 +25,8 @@ public class UsuarioGestion {
                         idUsuario,
                         info.getString(1),
                         info.getString(2));
+                        String prueba1=info.getString(1);
+                        String prueba2=info.getString(2);
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioGestion.class.getName()).log(Level.SEVERE, null, ex);

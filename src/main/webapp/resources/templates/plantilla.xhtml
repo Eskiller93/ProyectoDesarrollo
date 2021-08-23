@@ -43,7 +43,7 @@
             </b:navbarLinks>
             <!--Definicion de un grupo de opciones para salir-->
             <b:navbarLinks pull="right" style-class="hidden-xs">
-                <b:dropMenu value="Opciones" icon-awesome="fa-cog">
+                <b:dropMenu value="#{usuarioController.nombre}" icon-awesome="fa-cog">
                     <b:navLink value="Cerrar"
                                icon-awesome="fa-door-open"
                                href="#{request.contextPath}/faces/index.xhtml"/>

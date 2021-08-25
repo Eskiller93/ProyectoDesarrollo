@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <h:form id="inventarioForm">
+                    <b:panel title="Inventario" look="primary">                                               
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Modelo SKU"/>
+                            </b:column>
+                            <b:column medium-screen="2">
+                                <b:inputText placeholder="909990999"
+                                             id="modeloSKU"
+                                             value="#{inventarioController.modeloSKU}"/>
+                            </b:column>
+                            <b:column medium-screen="1">
+                                <b:commandButton value="Buscar"
+                                                 icon="search"
+                                                 look="success"
+                                                 onclick="inventarioController.buscaUbicacion(inventarioController.modeloSKU)"
+                                                 update="@form"/>
+                            </b:column>
+                            <b:column medium-screen="8" style-class="message">
+                                <b:message for="modeloSKU"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1"/>
+                            <b:column medium-screen="4">
+                                <h:outputLabel value="Ubicacion: #{inventarioController.ubicacion} / Cantidad:#{inventarioController.cantidad}"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1"/>
+                            <b:column medium-screen="1">
+                                <b:commandButton value="Imprimir"
+                                                 icon="print"
+                                                 disabled="#{inventarioController.noImprimir}"
+                                                 look="primary"
+                                                 action=" "/>
+                            </b:column>
+                        </b:row>
+                    </b:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

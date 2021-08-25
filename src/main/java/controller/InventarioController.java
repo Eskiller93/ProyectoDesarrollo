@@ -28,7 +28,7 @@ public class InventarioController extends Inventario implements Serializable {
             this.setCantidad(inventario.getCantidad());
             this.setUbicacion(inventario.getUbicacion());
             noImprimir=false;
-        } else {  //no lo encontró...            
+        } else {            
             this.setModeloSKU("");
             this.setCantidad(0);
             this.setUbicacion("");

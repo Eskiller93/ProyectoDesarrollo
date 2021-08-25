@@ -22,7 +22,7 @@ public class InventarioController extends Inventario implements Serializable {
         this.noImprimir = noImprimir;
     }    
     public void buscaUbicacion(String modeloSKU) {
-        Inventario inventario=InventarioGestion.getInventario(modeloSKU);
+        Inventario inventario = InventarioGestion.getInventario(modeloSKU);
         if (inventario!=null) {
             this.setModeloSKU(inventario.getModeloSKU());
             this.setCantidad(inventario.getCantidad());

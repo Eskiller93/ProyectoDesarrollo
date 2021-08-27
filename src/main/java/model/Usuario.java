@@ -11,7 +11,8 @@ public class Usuario {
     private boolean activo;
     private String tema;
     
-    public Usuario(String Usuario, String Contrasena, String tipoDeUsuario, String correoUsuario, String Nombre, String Apellido, boolean activo) {
+    public Usuario(String Usuario, String Contrasena, String tipoDeUsuario, String correoUsuario, 
+            String Nombre, String Apellido, boolean activo) {
         this.Usuario = Usuario;
         this.Contrasena = Contrasena;
         this.tipoDeUsuario = tipoDeUsuario;
@@ -29,12 +30,13 @@ public class Usuario {
         this.activo= activo;
        
 }
-    public Usuario(String Usuario, String Nombre, String Apellido, String tipoDeUsuario, boolean activo) {
+    public Usuario(String Usuario, String Nombre, String Apellido, String tipoDeUsuario, boolean activo,String tema) {
         this.Usuario = Usuario;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.tipoDeUsuario = tipoDeUsuario;
         this.activo = activo;
+        this.tema = tema;
     }
 
     public int getId() {

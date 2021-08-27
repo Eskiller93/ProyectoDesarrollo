@@ -19,7 +19,7 @@
         <b:navBar fluid="true" 
                   brand="Koko Miel" 
                   brandHref="#{request.contextPath}/faces/principal.xhtml">
-            <!--Definicion de un grupo de opciones-->
+            <!--Definicion de un grupo de articulos-->
             <b:navbarLinks pull="left">
                 <b:dropMenu value="Articulos" icon-awesome="fort-awesome"> <!-- icon-awesome es una familia de iconos, se puede buscar -->
                     <b:navLink value="Lista"
@@ -41,13 +41,32 @@
                                href="#{request.contextPath}/faces/cliente/reporte.xhtml"/>
                 </b:dropMenu>
             </b:navbarLinks>
+             <!--Definicion de un grupo de usuarios-->
              <b:navbarLinks pull="left">
                 <b:dropMenu value="Usuarios" icon-awesome="fal fa-users"> <!-- icon-awesome es una familia de iconos, se puede buscar -->
                     <b:navLink value="Agregar Usuario"
                                icon-awesome="fas fa-user-plus"
                                href="#{request.contextPath}/faces/usuario/agrega.xhtml"/>
+                   </b:dropMenu>   
+            </b:navbarLinks>
+            <!--Definicion de un grupo de empleados-->
+             <b:navbarLinks pull="left">
+                <b:dropMenu value="Empleados" icon-awesome="user"> <!-- icon-awesome es una familia de iconos, se puede buscar -->
+                    <b:navLink value="Lista De Empleados"
+                               icon-awesome="users"
+                               href="#{request.contextPath}/faces/empleados/listas.xhtml"/>
+                    <b:navLink value="Constancia Salarial"
+                               icon-awesome="money-bill"
+                               href="#{request.contextPath}/faces/empleados/constanciaSalario.xhtml"/>
+                </b:dropMenu>
+            </b:navbarLinks>
+            <!--Definicion de un grupo de proveedores-->
+            <b:navbarLinks pull="left">
+                <b:dropMenu value="Proveedores" icon-awesome="fal fa-users"> <!-- icon-awesome es una familia de iconos, se puede buscar -->
+                    <b:navLink value="Proveedores"
+                               icon-awesome="fas fa-folder"
+                               href="#{request.contextPath}/faces/proveedor/lista.xhtml"/>
                    </b:dropMenu>
-                 
             </b:navbarLinks>
             <!--Definicion de un grupo de opciones para salir-->
             <b:navbarLinks pull="right" style-class="hidden-xs">
@@ -84,7 +103,8 @@
                             </b:selectOneMenu>
                             <b:commandButton class="theme-selector-button" 
                                              value="select" 
-                                             style="display: none"/>
+                                             style="display: none"
+                                             action="#{usuarioController.cambiaTema()}"/>
                         </h:form>
                     </b:navLink>
                 </b:dropMenu>                

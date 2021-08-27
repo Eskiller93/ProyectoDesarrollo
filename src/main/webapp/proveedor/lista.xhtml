@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Proveedor</title>
+    </h:head>
+    <body>
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <b:panel title="Proveedor" look="primary">
+                    <h:form>
+                        <b:dataTable value="#{proveedorController.proveedor}"
+                                     var="proveedor"
+                                     pdf="true"
+                                     copy="true"
+                                     column-visibility="true">
+                            <b:dataTableColumn value="#{proveedor.idProveedor}"
+                                               width="9%"
+                                               style="text-align: center"
+                                               label="Codigo de Proveedor"/>
+                            <b:dataTableColumn value="#{proveedor.nombreEmpresa}"
+                                               width="15%"
+                                               style="text-align: center"
+                                               label="Nombre de Empresa"/>
+                            <b:dataTableColumn value="#{proveedor.direccion}"
+                                               width="15%"
+                                               style="text-align: center"
+                                               label="Direccion"/>
+                            <b:dataTableColumn value="#{proveedor.correo}"
+                                               width="19%"
+                                               style="text-align: center"
+                                               label="Correo"/>
+                            <b:dataTableColumn value="#{proveedor.telefono}"
+                                               width="19%"
+                                               style="text-align: center"
+                                               label="Telefono"/>
+                            <b:dataTableColumn value="#{proveedor.tipoServicio}"
+                                               width="10%"
+                                               style="text-align: center"
+                                               label="Tipo de Servicio"/>
+                            <b:dataTableColumn label="Accion"
+                                               width="10%"
+                                               style="text-align: center">
+                                        <b:commandButton value="Generar Codigo" 
+                                                         look="success"
+                                                         action="#{proveedorController.generarQr(proveedor.idProveedor)}"/>
+                            </b:dataTableColumn>
+                        </b:dataTable>
+                    </h:form>
+                </b:panel>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

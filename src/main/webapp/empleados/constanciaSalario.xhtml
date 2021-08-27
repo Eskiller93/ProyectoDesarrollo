@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Constancia Salarial</title>
+    </h:head>
+    <body>        
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <h:form id="constanciaSalarialEmpleadosfrom">
+                    <b:panel title="Constancia de Salario" look="primary">
+                         <b:column medium-screen="2">
+                                <b:inputText placeholder="000000000"
+                                             id="idEmpleado"
+                                             value="#{empleadosController.idEmpleado}"/>
+                            </b:column>
+                         <b:row>
+                        <b:column medium-screen="1">
+                                <b:commandButton value="Buscar"
+                                                 icon="search"
+                                                 look="success"
+                                                 onclick="ajax:empleadosController.buscaEmpleado(empleadosController.idEmpleado)"
+                                                 update="@form"/>
+                            </b:column>
+                         </b:row>
+                           <b:row>
+                            <b:column medium-screen="1"/>
+                            <b:column medium-screen="4">
+                                <h:outputLabel value="Cedula: #{empleadosController.idEmpleado}"/>
+                            </b:column>
+                        </b:row>
+                         <b:row>
+                            <b:column medium-screen="1"/>
+                            <b:column medium-screen="4">
+                                <h:outputLabel value="Nombre: #{empleadosController.nombre}"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1"/>
+                            <b:column medium-screen="4">
+                               <h:outputLabel value="Apellido: #{empleadosController.apellido}"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1"/>
+                            <b:column medium-screen="4">
+                                <h:outputLabel value="Puesto Laboral: #{empleadosController.cargoLaboral}"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1"/>
+                            <b:column medium-screen="4">
+                                <h:outputLabel value="Puesto Laboral: #{empleadosController.genero}"/>
+                            </b:column>
+                        </b:row>
+                        <!-- Fila mostrar boton para imprimir -->
+                        <b:row>
+                            <b:column medium-screen="1"/>                                
+                            <b:column medium-screen="4">
+                                <b:commandButton value="Imprimir"
+                                                 look="primary"
+                                                 icon="print"
+                                                
+                                                 action="#{constanciaController.constanciaSalario()}"/>
+                            </b:column>
+                        </b:row>
+                        
+                    </b:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
+

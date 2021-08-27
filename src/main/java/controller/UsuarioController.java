@@ -23,6 +23,7 @@ public class UsuarioController extends Usuario implements Serializable {
                 this.setNombre(usuario.getNombre());
                 this.setApellido(usuario.getApellido());
                 this.setTipoDeUsuario(usuario.getTipoDeUsuario());
+                this.setTema(usuario.getTema());
                 return "principal.xhtml";
             }else{
                 FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_FATAL,
@@ -65,5 +66,10 @@ public class UsuarioController extends Usuario implements Serializable {
         }else {
             return "index.xhtml";
         }
+    }
+    
+    public String cambiaTema(){
+        UsuarioGestion.modificarTema(this.getTema(),this.getUsuario());
+            return "principal.xhtml";
     }
 }

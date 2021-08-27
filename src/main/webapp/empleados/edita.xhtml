@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Empleados</title>
+    </h:head>
+    <body>
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <b:panel title="Empleados" look="primary">
+                    <h:form id="editaEmpleadosForm">
+                        <!-- La fila del idEmpleado -->
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Identificación del Empleado"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="cedula"
+                                             id="idEmpleado"
+                                             required="true"
+                                             value="#{empleadosController.idEmpleado}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="idEmpleado"/>
+                            </b:column>
+                        </b:row>
+
+                        <!-- La fila del nombre-->
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="nombre"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="nombre "
+                                             id="nombre"
+                                             required="true"
+                                             value="#{empleadosController.nombre}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="nombre"/>
+                            </b:column>
+                        </b:row>
+
+                        <!-- La fila del apellido-->
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Apellido"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Apellido "
+                                             id="apellido"
+                                             required="true"
+                                             value="#{empleadosController.apellido}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="apellido1"/>
+                            </b:column>
+                        </b:row>
+                        
+                        <!-- La fila del cargo laboral -->
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Cargo laboral"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Cargo laboral"
+                                             id="cargoLaboral"
+                                             value="#{empleadosController.cargoLaboral}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="Cargo Laboral"/>
+                            </b:column>
+                        </b:row>
+
+                        <!-- La fila del salario -->
+                      <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="salario"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="salario"
+                                             id="salario"
+                                             value="#{empleadosController.salario}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="salario"/>
+                            </b:column>
+                        </b:row>
+
+                        <!-- La fila del género -->
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Género"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:panelGrid size="" columns="2">
+                                    <b:radiobutton value="#{empleadosController.genero}"
+                                                   itemLabel="Hombre"
+                                                   itemValue="H"/>
+                                    <b:radiobutton value="#{empleadosController.genero}"
+                                                   itemLabel="Mujer"
+                                                   itemValue="M"/>
+                                </b:panelGrid>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="genero"/>
+                            </b:column>
+                        </b:row>
+
+                         <!-- La fila de los botones-->
+                        <b:row>
+                            <b:column medium-screen="2"/>
+                            <b:column medium-screen="6">
+                               
+                                <b:commandButton value="Eliminar"
+                                                 action="#{empleadosController.eliminar()}"
+                                                 look="danger"
+                                                 style="width: 33%" />
+                                <b:commandButton value="Modificar"
+                                                 action="#{empleadosController.modificar()}"
+                                                 look="success"
+                                                 style="width: 33%" />
+                            </b:column>                            
+                        </b:row>                        
+                    </h:form>
+                </b:panel>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

@@ -10,7 +10,7 @@ import model.Usuario;
 
 public class UsuarioGestion {
     private static final String SQL_VALIDA=
-            "select nombre,apellido,tipodeusuario,activo from usuarios where usuario=? and contrasena=md5(?)";
+            "select nombre,apellido,tipodeusuario,activo,tema from usuarios where usuario=? and contrasena=md5(?)";
     
     public static Usuario valida(String idUsuario,String pwUsuario) {
         Usuario usuario=null;
@@ -26,7 +26,8 @@ public class UsuarioGestion {
                         info.getString(1),
                         info.getString(2),
                         info.getString(3),
-                        info.getBoolean(4));
+                        info.getBoolean(4),
+                        info.getString(5));
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioGestion.class.getName()).log(Level.SEVERE, null, ex);
@@ -68,6 +69,7 @@ public class UsuarioGestion {
         }
         return false;
     }
+    
     public static boolean insertar(Usuario usuario) {
         String sentencia = "insert into usuarios "
                 + "(usuario,contraseña,tipodeusuario,correoUsuario,nombre,apellido,activo)"
@@ -85,6 +87,20 @@ public class UsuarioGestion {
             return consulta.executeUpdate() > 0;  //retorna true si logra inserta o falso si no...
         } catch (SQLException ex) {
             Logger.getLogger(ClienteGestion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public static boolean modificarTema(String tema, String usuario){
+        String sentencia = "update usuarios set tema=? where usuario=?";
+        try {
+            PreparedStatement consulta = Conexion.getConexion()
+                    .prepareStatement(sentencia);
+            consulta.setString(1, tema);
+            consulta.setString(2, usuario);
+            return consulta.executeUpdate() > 0;  //retorna true si logra modificar o falso si no...
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }

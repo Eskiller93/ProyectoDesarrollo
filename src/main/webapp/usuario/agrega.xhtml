@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Usuarios</title>
+    </h:head>
+    <body>
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <b:panel title="Usuario" look="success">
+                    <h:form id="agregaUsuarioForm">
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Usuario"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputText placeholder="Usuario"
+                                             id="usuario"
+                                             required="true"
+                                             value="#{usuarioController.usuario}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="Usuario"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Contraseña"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputSecret placeholder="Contraseña"
+                                             id="contrasena"
+                                             required="true"
+                                             value="#{usuarioController.contrasena}"/>
+                                
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="Contraseña"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Tipo de Usuario"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:panelGrid size="" columns="3">
+                                    <b:radiobutton value="#{usuarioController.tipoDeUsuario}"
+                                                   itemLabel="Gerente"
+                                                   itemValue="Gerente"/>
+                                    <b:radiobutton value="#{usuarioController.tipoDeUsuario}"
+                                                   itemLabel="Administrador"
+                                                   itemValue="Administrador"/>
+                                    <b:radiobutton value="#{usuarioController.tipoDeUsuario}"
+                                                   itemLabel="Respaldo"
+                                                   itemValue="Respaldo"/>
+                                </b:panelGrid>
+                            </b:column>
+                            <b:column medium-screen="4" style-class="message">
+                                <b:message for="Tipo de Usuario"/>
+                            </b:column>
+                             </b:row>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Correo de Usuario"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Correo de Usuario"
+                                             id="correoUsuario"
+                                             required="true"
+                                             value="#{usuarioController.correoUsuario}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="correoUsuario"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Nombre"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Nombre"
+                                             id="nombre"
+                                             required="true"
+                                             value="#{usuarioController.nombre}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="Nombre"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Apellido"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText placeholder="Apellido"
+                                             id="apellido"
+                                             required="true"
+                                             value="#{usuarioController.apellido}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="Apellido"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Activo"/>
+                            </b:column>
+                           <b:column medium-screen="4">
+                                <b:panelGrid size="" columns="2">
+                                    <b:radiobutton value="#{usuarioController.activo}"
+                                                   itemLabel="Activo"
+                                                   itemValue="True"
+                                                   id="activo"/>
+                                </b:panelGrid>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="Activo"/>
+                            </b:column>
+                        </b:row>
+                        <!-- La fila de los botones -->
+                        <b:row>
+                            <b:column medium-screen="2"/>
+                            <b:column medium-screen="6">
+                                <b:commandButton value="Agregar"
+                                                 action="#{usuarioController.agrega()}"
+                                                 look="success"
+                                                 style="width: 33%"/>
+                            </b:column>
+                        </b:row>
+                    </h:form>
+                </b:panel>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

@@ -1,6 +1,5 @@
 package controller;
 
-import gestion.ArticuloGestion;
 import gestion.UsuarioGestion;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -36,6 +35,35 @@ public class UsuarioController extends Usuario implements Serializable {
             return "index.xhtml";
         }
     }
+    public String cambioPW(){
+        if(this.getContrasena().equals(this.getContrasena()) ){
+        if (UsuarioGestion.modificarPW(this)) {
+            return "index.xhtml";
+        } else {
+            FacesMessage mensaje = 
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Error","Cambio no permitido");
+            FacesContext.getCurrentInstance().addMessage(
+                    "CambioForm:Usuario", mensaje);            
+            return "cambiopasswd.xhtml";
+        }
+        }else{
+            return "index.xhtml";
+        }
+    }
+    public String agrega() {
+        if (this.getTipoDeUsuario().equalsIgnoreCase("Administrador")){
+        if (UsuarioGestion.insertar(this)) {
+            return "index.xhtml";
+        } else {
+            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO,
+                    "Atencion","Este campo es requerido");
+            FacesContext.getCurrentInstance().addMessage(
+                    "agregaUsuarioForm:usuario", mensaje);
+            return "agrega.xhtml";
+        }
+        }else {
+            return "index.xhtml";
+        }
+    }
 }
-        
-

@@ -75,6 +75,13 @@ public class ArticuloController extends Articulo implements Serializable {
     }
     
     public String agregar(){
+        this.setModeloSKU("");
+        this.setMarca("");
+        this.setTallasDisponibles("");
+        this.setPrecio(0);
+        this.setDetalle("");
+        this.setCantidad(0);
+        this.setUbicacion("");
         return "agrega.xhtml";
     }
 }

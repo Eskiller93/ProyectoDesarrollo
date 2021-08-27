@@ -27,7 +27,7 @@
                                href="#{request.contextPath}/faces/articulo/articulos.xhtml"/>
                     <b:navLink value="Inventario"
                                icon-awesome="fa-diamond"
-                               href="#{request.contextPath}/faces/inventario/inventario.xhtml"/>
+                               href="#{request.contextPath}/faces/inventario/#{inventarioController.gestionarInventario()}"/>
                 </b:dropMenu>
             </b:navbarLinks>
              <!--Definicion de un grupo de clientes-->
@@ -41,16 +41,55 @@
                                href="#{request.contextPath}/faces/cliente/reporte.xhtml"/>
                 </b:dropMenu>
             </b:navbarLinks>
+             <b:navbarLinks pull="left">
+                <b:dropMenu value="Usuarios" icon-awesome="fal fa-users"> <!-- icon-awesome es una familia de iconos, se puede buscar -->
+                    <b:navLink value="Agregar Usuario"
+                               icon-awesome="fas fa-user-plus"
+                               href="#{request.contextPath}/faces/usuario/agrega.xhtml"/>
+                   </b:dropMenu>
+                 
+            </b:navbarLinks>
             <!--Definicion de un grupo de opciones para salir-->
             <b:navbarLinks pull="right" style-class="hidden-xs">
                 <b:dropMenu value="#{usuarioController.nombre} #{usuarioController.apellido}" icon-awesome="fa-cog">
                     <b:navLink value="Cerrar"
                                icon-awesome="fa-door-open"
                                href="#{request.contextPath}/faces/index.xhtml"/>
+                    <b:navLink value="Cambio Contraseña"
+                               icon-awesome="fas fa-key"
+                               href="#{request.contextPath}/faces/cambiopasswd.xhtml"/>
+                    <b:navLink value="Temas">
+                        <h:form style="display: inline" styleClass="form-inline">
+                            <b:selectOneMenu value="#{usuarioController.tema}"
+                                             style="width: 180px;margin: 8px"
+                                             onchange="$('.theme-selector-button').click()"
+                                             id="tema">
+                                <f:selectItem itemValue="default" itemLabel="default"/>
+                                <f:selectItem itemValue="patternfly" itemLabel="patternfly"/>
+                                <f:selectItem itemValue="cerulean" itemLabel="cerulean"/>
+                                <f:selectItem itemValue="cosmo" itemLabel="cosmo"/>
+                                <f:selectItem itemValue="cyborg" itemLabel="cyborg"/>
+                                <f:selectItem itemValue="darkly" itemLabel="darkly"/>
+                                <f:selectItem itemValue="flatly" itemLabel="flatly"/>
+                                <f:selectItem itemValue="journal" itemLabel="journal"/>
+                                <f:selectItem itemValue="lumen" itemLabel="lumen"/>
+                                <f:selectItem itemValue="paper" itemLabel="paper"/>
+                                <f:selectItem itemValue="readable" itemLabel="readable"/>
+                                <f:selectItem itemValue="sandstone" itemLabel="sandstone"/>
+                                <f:selectItem itemValue="simplex" itemLabel="simplex"/>
+                                <f:selectItem itemValue="spacelab" itemLabel="spacelab"/>
+                                <f:selectItem itemValue="superhero" itemLabel="superhero"/>
+                                <f:selectItem itemValue="united" itemLabel="united"/>
+                                <f:selectItem itemValue="yeti" itemLabel="yeti"/>
+                            </b:selectOneMenu>
+                            <b:commandButton class="theme-selector-button" 
+                                             value="select" 
+                                             style="display: none"/>
+                        </h:form>
+                    </b:navLink>
                 </b:dropMenu>                
             </b:navbarLinks>
         </b:navBar>
-
         <div id="content" class="center_content">
             <ui:insert name="content">Content</ui:insert>
         </div>

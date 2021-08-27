@@ -14,7 +14,8 @@ public class InventarioController extends Inventario implements Serializable {
 
     public InventarioController() {
     }
-        private boolean noImprimir=true;
+    private boolean noImprimir=true;
+    
     public boolean isNoImprimir() {
         return noImprimir;
     }
@@ -26,7 +27,7 @@ public class InventarioController extends Inventario implements Serializable {
         if (inventario!=null) {
             this.setModeloSKU(inventario.getModeloSKU());
             this.setCantidad(inventario.getCantidad());
-            this.setUbicacion(inventario.getUbicacion());
+            this.setUbicacion("Ubicacion: "+inventario.getUbicacion()+" / Cantidad: " + inventario.getCantidad());
             noImprimir=false;
         } else {            
             this.setModeloSKU("");
@@ -39,5 +40,12 @@ public class InventarioController extends Inventario implements Serializable {
                     "inventarioForm:modeloSKU", mensaje);
             noImprimir=true;
         }        
+    }
+    
+    public String gestionarInventario() {
+        this.setModeloSKU("");
+        this.setCantidad(0);
+        this.setUbicacion("");
+        return "inventario.xhtml";     
     }
 }

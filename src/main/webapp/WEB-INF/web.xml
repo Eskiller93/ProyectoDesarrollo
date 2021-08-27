@@ -5,6 +5,10 @@
         <param-value>Development</param-value>
     </context-param>
     <context-param>
+        <param-name>BootsFaces_THEME</param-name>
+        <param-value>#{usuarioController.tema}</param-value>
+    </context-param>
+    <context-param>
         <param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
         <param-value>6LcDbxgcAAAAANHMnKfG0FtVaON_YoIgVtFdYjoT</param-value>
     </context-param>
@@ -12,7 +16,14 @@
         <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
         <param-value>6LcDbxgcAAAAAKZ3zBq5KL6DTVDlTuAG9zXtDPwU</param-value>
     </context-param>       
-    
+    <context-param>
+        <param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+        <param-value>6LejHiIcAAAAACciWlT1gxMRmZGS4rl4UeQoGjSM</param-value>
+    </context-param>
+   <context-param>
+        <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+        <param-value>6LejHiIcAAAAACA4w_7qAXOPUplNL4brglnfQp6w</param-value>
+    </context-param>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

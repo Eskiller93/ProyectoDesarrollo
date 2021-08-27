@@ -9,7 +9,8 @@ public class Usuario {
     private String Nombre;
     private String Apellido;
     private boolean activo;
-
+    private String tema;
+    
     public Usuario(String Usuario, String Contrasena, String tipoDeUsuario, String correoUsuario, String Nombre, String Apellido, boolean activo) {
         this.Usuario = Usuario;
         this.Contrasena = Contrasena;
@@ -22,7 +23,12 @@ public class Usuario {
 
     public Usuario() {
     }
-
+    public Usuario(String Contrasena, String Nombre, boolean activo) {
+        this.Contrasena=Contrasena;
+        this.Nombre=Nombre;
+        this.activo= activo;
+       
+}
     public Usuario(String Usuario, String Nombre, String Apellido, String tipoDeUsuario, boolean activo) {
         this.Usuario = Usuario;
         this.Nombre = Nombre;
@@ -95,6 +101,11 @@ public class Usuario {
         this.activo = activo;
     }
     
-    
-    
+        public String getTema() {
+        return tema;
+    }
+
+    public void setTema(String tema) {
+        this.tema = tema;
+    }
 }

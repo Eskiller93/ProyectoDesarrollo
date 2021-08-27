@@ -73,6 +73,14 @@ public class ClienteController extends Cliente implements Serializable {
     }
     
     public String agregar(){
+        this.setIdCliente("");
+        this.setNombre("");
+        this.setApellido1("");
+        this.setApellido2("");
+        this.setCorreo("");
+        this.setCelular("");
+        this.setEdad("");
+        this.setGenero("");
         return "agrega.xhtml";
     }
 }
